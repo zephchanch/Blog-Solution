@@ -75,10 +75,5 @@ To answer this question, a support vector machine classifier is trained on the i
 
 
 
-https://blog.usejournal.com/how-much-your-app-ratings-reviews-affect-your-conversion-rate-4dfa458c1c2e
-
-
-
-
 
 
