@@ -1,14 +1,33 @@
- # A comprehensive study of app store user ratings.
-## Business Understanding
-This project is centered the understanding of the factors which influence user ratings on Apple app store. The project will address these five questions:
-- Which genre of applications is most common on the app store?
-- Which genre of applications are highly rated and which are least rated? 
-- How do the number of languages and supported devices affect user rating? 
-- Can the rating of the application be predicted from the initial properties of the application(size, supported devices, languages, price….)
+# A comprehensive study of app store user ratings.
+## Introduction¶
+In this project, we shall pick a dataset, analyse it, draw insight from the data and use it to answer business questions posed. We shall follow the CRISP-DM(Cross Industry Process For Data Mining) Methodology which consists following steps:
++ Business Understanding
++ Data Understanding
++ Data Preparation
++ Modelling
++ Evaluation
++ Deployment.
 
+## Motivation
+Big up to everyone who thinks or plans on having an application on an appstore(precisely the apple appstore), and a "bigger up" for those who already have. Putting an app on an app store is a big step. The other step is to get people to download and use the app. 
+The number of downloads of an app very much depends on rating, and the number of reviews given for the said app. According to a [suvey](https://www.apptentive.com/blog/2015/05/05/app-store-ratings-reviews-guide/) conducted by [Appentive](https://www.apptentive.com/), a company which uses customer feedback to help compainies increase their app downloads:
++ 92% of the top 100 paid apps have at least a 4 star rating.
++ 98% of the top 100 free apps have at least a 4 star rating
 
-The project will utilize visualizations like bar-charts to answer the first four questions and the last will utilize supervised learning to determine if ratings could be predicted. 
+So before asking the team of developers to start working on one of those 'killer' app-ideas that will be next big thing and make millions, it may be wise to look into the appstore and investigate factors affecting user ratings and the different categories or genres of applications.
+Is it possible to predict if an app will be highly rated or not? 
+What can one do to maximise the chances for his/her app to be highly rated?
 
+My team of 1 has decided to embark on such a task. 
+Come with me as we explore the Apple app store to see if we can make some sense out of the ratings and find out information that can help the future app developer. 
+
+We will attemp to answer questions like:
++ Which genre of applications are most common on the app store?
++ What is the most common rating? 
++ Which genre of applications are highly rated and which are least rated?
++ How are prices distributed?
++ How does the number of languages and supported devices affect user rating?
++ Can the rating of the application be predicted from the initial properties of the application(size, supported devices, languages, price….)
 
 ### Required Packages
 These are the required packages for the project. 
@@ -19,6 +38,13 @@ These are the required packages for the project.
 - [matplotlib](https://matplotlib.org/)
 - [Numpy](http://www.numpy.org/)
 - [jupyter](http://jupyter.org/)
+
+### All files
+The files contained in this repository are:
++ AppleStore.csv - Our dataset.
++ blog_your_solution.ipynb - Our ipython notebook containing the solution.
++ blog-your-solution.html - Html copy of our solution
++ README.md - Markdownfile summarising the project.
 
 ### Plan
 The project will evolve in these various stages:
@@ -50,28 +76,35 @@ The dataset for this project is an Apple iOS app store on [kaggle](https://www.k
 ![alt text](pics/1.png)
 Looking at the graph of non-empty values, I could conclude that all fields are completely filled. Checking the data types for each column, all the types are correct given the category of data in every column. 
 
-### Questions
+### A summary of Some of Our Findings
 #### Question 1: Which genre of applications are most common on the app store?
 ![](pics/2.png)
 ![](pics/3.png)
 
 From the genre distribution bar-chart above, it can be concluded that the games' genre has the highest apps on App Store occupying about 53% of the dataset. 
 
-####  Question 2:  Which genre of applications are highly rated and which are least rated? 
+### Question 2: Which is the most common Rating
+For almost all genres, the most common rating was 4.5. The finance genre has 0.0 as the highest rating though.
+
+####  Question 3:  Which genre of applications are highly rated and which are least rated? 
 ![](pics/4.png)
 Productivity applications are most highly rated, closely followed by Music applications and Business applications.
 
-#### Question 3: How do the number of languages and supported devices affect user rating? 
-Below is a correlation plot for all the attributes of this dataset. 
-![](pics/6.png)
-Looking closely at the correlation plot, language number has about 0.4 correlation with user rating and supported devices has about 0.25 correlation and both values are low indicating a minimal correlation between the two columns and the user rating. 
-![](pics/7.png)
-Looking at the scatter plot of supported devices against user ratings above, it can be concluded that there is no significant relationship between the number of supported devices and the user rating. The ratings become more uniformly distributed as the number of devices increase. 
-![](pics/7.png)
-A closer look at the scatter plot of the number of languages against user ratings reveals a bit of correlation as the number of languages increase. More ratings are given for many more languages supported. 
 
-### Question 4: Can the rating of the application be predicted from the initial properties of the application(app size, supported devices, languages, price….)?
-To answer this question, a support vector machine classifier is trained on the input fields of the dataset("size_bytes","price", "prime_genre","sup_devices.num","ipadSc_urls.num","lang.num","ipadSc_urls.num"). The "prime_genre" column which is a text field is converted to categorical values to enable compatibility with Sklearn SVM classifier. The labels (user_ratings) were also converted to categorical values as SVM works only with integer values. The accuracy matrix was used to evaluate the performance of the model. The best training accuracy obtained was 38.6. The accuracy on the test dataset was 38.4. Given these low accuracies obtained on the dataset, it can be concluded that the ratings of an application on play store cannot be adequately predicted from the input features. There is little correlation between all the input fields and the user ratings. 
+
+#### Question 6: Can an App be predicted to be a highly rated app or a lowly rated app from the initial properties of the application(app size, supported devices, languages, price….)?
+To answer this question, a support vector machine classifier is trained on the input fields of the dataset("price", "prime_genre","sup_devices.num","ipadSc_urls.num","lang.num"). The "prime_genre" column which is a text field is converted to categorical values to enable compatibility with Sklearn SVM classifier. The labels (user_ratings) were also converted to categorical values as SVM works only with integer values.
+We had an accuracy of 69.9%.
+
+We also tried a linear regression model, and had almost same accuracy. We however stuck with the Support Vector classifier as it's accuracy was slightly higher. 
+
+A more detailed summary can be found in the ipython notebook.
+Also, more insights can be gotten from the blog post on [medium]()
+
+## Acknowledgements
++ The dataset for this project was downloaded from kaggle.
++ The picture for the blog post was gotten from [Mobile app daily](https://www.mobileappdaily.com/2018/01/5/ways-to-improve-ios-app-rating-in-app-store)
+
 
 
 
