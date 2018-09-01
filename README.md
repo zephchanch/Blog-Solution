@@ -45,6 +45,7 @@ The files contained in this repository are:
 + blog_your_solution.ipynb - Our ipython notebook containing the solution.
 + blog-your-solution.html - Html copy of our solution
 + README.md - Markdownfile summarising the project.
++ pics - A folder for pictures for our visualization.
 
 ### Plan
 The project will evolve in these various stages:
