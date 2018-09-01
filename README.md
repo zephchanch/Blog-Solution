@@ -93,13 +93,13 @@ Productivity applications are most highly rated, closely followed by Music appli
 
 
 #### Question 6: Can an App be predicted to be a highly rated app or a lowly rated app from the initial properties of the application(app size, supported devices, languages, price….)?
-To answer this question, a support vector machine classifier is trained on the input fields of the dataset("price", "prime_genre","sup_devices.num","ipadSc_urls.num","lang.num"). The "prime_genre" column which is a text field is converted to categorical values to enable compatibility with Sklearn SVM classifier. The labels (user_ratings) were also converted to categorical values as SVM works only with integer values.
-We had an accuracy of 69.9%.
+To answer this question, a logistic regression classifier is trained on the input fields of the dataset("price", "prime_genre","sup_devices.num","ipadSc_urls.num","lang.num"). The "prime_genre" column which is a text field is converted to categorical values to enable compatibility with SKLearns logistic regression model. The labels (user_ratings) were also converted to categorical values as regression model works only with integer values.
+We had an accuracy of 69%.
 
-We also tried a linear regression model, and had almost same accuracy. We however stuck with the Support Vector classifier as it's accuracy was slightly higher. 
+We also tried a Support Vector Classifier, and had almost same accuracy. We however stuck with the Logistic Regression Model as it's accuracy was slightly higher. 
 
 A more detailed summary can be found in the ipython notebook.
-Also, more insights can be gotten from the blog post on [medium]()
+Also, more insights can be gotten from the blog post on [medium](https://medium.com/@white.zephyrzen/improving-chances-of-having-better-ratings-for-apps-on-the-ios-app-store-using-data-analysis-and-c7ee93fe7590)
 
 ## Acknowledgements
 + The dataset for this project was downloaded from kaggle.
